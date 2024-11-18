@@ -43,6 +43,9 @@ fn main() {
     rom.read_to_end(&mut game_buffer).unwrap();
     emu.load_data(&game_buffer);
 
+    let timer_duration = Duration::from_nanos(1_000_000_000 / 60); // 60Hz
+    let mut last_timer_update = Instant::now();
+
     let mut event_pump = sdl_context.event_pump().unwrap();
     // The entire program loop
     'programLoop: loop {
@@ -70,7 +73,11 @@ fn main() {
         for _ in 0..TICKS_PER_FRAME {
             emu.tick();
         }
-        emu.time_tick();
+
+        if cycle_start.duration_since(last_timer_update) >= timer_duration {
+            emu.time_tick();
+            last_timer_update = cycle_start;
+        }
         // Continue emulation and draw results
         draw_display(&emu, &mut canvas);
 

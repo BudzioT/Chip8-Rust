@@ -85,6 +85,9 @@ async function run() {
     // Load file from the list
     fileList.onchange = (event) => {
         const fileName = event.target.value;
+        if (fileName === "") {
+            return;
+        }
         const filePath = `./games/${fileName}`;
 
         changeDescription(fileName);
@@ -102,13 +105,16 @@ async function run() {
                 emu.load_data(uint8Array);
                 programLoop(emu);
             }).catch(error => console.error("Error loading file:", error));
+        fileList.blur();
     };
 }
 
 function changeDescription(game) {
-    let desc = "<p><h3>" + game + "</h3><b>Keybinds:</b>";
+    let desc = "<p><h3>" + game + "</h3>";
     if (game === "TETRIS") {
         desc +=
+            "Just try to fill the entire line to break blocks, don't let them overflow!<br /><br />" +
+            "<b>Keybinds:</b>" +
             "<ul>" +
             "<li><i>W / E</i> - move block</li>" +
             "<li><i>Q</i> - rotate block</li>" +
@@ -117,6 +123,8 @@ function changeDescription(game) {
     }
     else if (game === "INVADERS") {
         desc +=
+            "Beat all the aliens, watch out - they're going much faster with each round!<br /><br />" +
+            "<b>Keybinds:</b>" +
             "<ul>" +
             "<li><i>Q / E</i> - movement</li>" +
             "<li><i>W</i> - shoot</li>" +
@@ -124,6 +132,8 @@ function changeDescription(game) {
     }
     else if (game === "PONG" || game === "PONG2") {
         desc +=
+            "Just a pong! Try to make your opponent lose, bounce the ball with your paddle!<br /><br />" +
+            "<b>Keybinds:</b>" +
             "<ul>" +
             "<li><i>1 / Q</i> - Player 1 up/down movement</li>" +
             "<li><i>4 / R</i> - Player 2 up/down movement</li>" +
@@ -131,12 +141,16 @@ function changeDescription(game) {
     }
     else if (game === "WIPEOFF") {
         desc +=
+            "Try to wipe off all blocks, make sure to bounce the ball!<br /><br />" +
+            "<b>Keybinds:</b>" +
             "<ul>" +
             "<li><i>Q/E</i> - movement</li>" +
             "</ul></p>";
     }
     else if (game === "TANK") {
         desc +=
+            "Defeat enemies with your tank, don't let them come to close!<br /><br />" +
+            "<b>Keybinds:</b>" +
             "<ul>" +
             "<li><i>2 / S</i> - vertical movement</li>" +
             "<li><i>Q / E</i> - horizontal movement</li>" +
@@ -144,7 +158,9 @@ function changeDescription(game) {
             "</ul></p>";
     }
     else if (game === "TICTAC") {
-        desc = "<p><h3>TIC TAC TOE</h3><b>Keybinds:</b>" +
+        desc = "<p><h3>TIC TAC TOE</h3>" +
+            "Beat your friend in a match of tic-tac-toe, try to get a full line of your shape!<br /><br />" +
+            "<b>Keybinds:</b>" +
             "<ul>" +
             "<li>1 / 2 / 3 - top row</li>" +
             "<li><i>Q / W / E</i> - middle row</li>" +
@@ -153,6 +169,8 @@ function changeDescription(game) {
     }
     else if (game === "UFO") {
         desc +=
+            "Try to hit aliens as many times, as possible!<br /><br />" +
+            "<b>Keybinds:</b>" +
             "<ul>" +
             "<li><i>W</i> - shoot forward</li>" +
             "<li><i>Q</i> - shoot to the left</li>" +
@@ -160,12 +178,57 @@ function changeDescription(game) {
             "</ul></p>";
     }
     else if (game === "BLINKY") {
-        desc = desc = "<p><h3>BLINKY</h3><b>I don't know what's going on, but</br></b>" +
-            "it's something like PacMan";
+        desc = desc = "<p><h3>BLINKY</h3><b>I don't know what's going on, but</br>" +
+            "it's something like PacMan</b>";
     }
     else if (game === "VERS") {
-        desc = "<p><h3>VERS</h3><b>I don't know what's going on, but</br></b>" +
-            "Something like Snake, but two???";
+        desc = "<p><h3>VERS</h3><b>I don't know what's going on, but</br>" +
+            "Something like Snake, but two???</b>";
+    }
+    else if (game === "BRIX") {
+        desc +=
+            "Break all bricks!<br /><br />" +
+            "<b>Keybinds:</b>" +
+            "<ul>" +
+            "<li><i>Q / E</i> - movement</li>" +
+            "</ul></p>";
+    }
+    else if (game === "VBRIX") {
+        desc +=
+            "Break all bricks, now vertically!<br /><br />" +
+            "<b>Keybinds:</b>" +
+            "<ul>" +
+            "<li><i>1 / Q</i> - movement</li>" +
+            "<li><i>A</i> - start</li>" +
+            "</ul></p>";
+    }
+    else if (game === "MISSILE") {
+        desc +=
+            "Shoot all blocks, watch out, every shoot makes you go faster!<br /><br />" +
+            "<b>Keybinds:</b>" +
+            "<ul>" +
+            "<li><i>S</i> - shoot</li>" +
+            "</ul></p>";
+    }
+    else if (game === "MERLIN") {
+        desc +=
+            "Basically Simon Says, remember and guess the combination!<br /><br />" +
+            "<b>Keybinds:</b>" +
+            "<ul>" +
+            "<li><i>Q</i> - top left</li>" +
+            "<li><i>W</i> - top right</li>" +
+            "<li><i>A</i> - bottom left</li>" +
+            "<li><i>S</i> - bottom right</li>" +
+            "</ul></p>";
+    }
+    else if (game === "MAZE") {
+        desc = "<p><h3>MAZE</h3><b>Just made generator</b>";
+    }
+    else if (game === "KALEID") {
+        desc = "<p><h3>KALEID</h3><b>I don't understand it, but impressive, just spam buttons</b>";
+    }
+    else if (game === "test_opcode.ch8") {
+        desc = "<p><h3>TEST OPCODES</h3>Just check if opcodes are working correctly</p>";
     }
 
     description.innerHTML = desc;

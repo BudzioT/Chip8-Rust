@@ -208,6 +208,8 @@ impl Emulator {
             // DRW Vx, Vy, nibble - display n-byte sprite at memory location I, position (Vx, Vy)
             // set VF to collision
             (0xD, _, _, _) => {
+                self.v_reg[0xFusize] = 0;
+
                 let x_coord: u16 = self.v_reg[part2 as usize] as u16;
                 let y_coord: u16 = self.v_reg[part3 as usize] as u16;
 
