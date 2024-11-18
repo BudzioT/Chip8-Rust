@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rust Chip8 Emulator</title>
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+    <h1 id="title">Chip8 Emulator</h1>
+
+    <div id="fileContainer">
+        <div id="fileOption1">
+            <label for="fileInput">Upload a game: </label>
+            <input type="file" id="fileInput" autocomplete="off" />
+        </div>
+        <div id="fileOption2">
+            <label>Or choose a game from the list:</label>
+            <select id="fileList">
+                <option value=""></option>
+                <option value="INVADERS">Invaders</option>
+                <option value="PONG">Pong</option>
+                <option value="TETRIS">Tetris</option>
+                <option value="PONG2">Pong 2</option>
+                <option value="PUZZLE">Puzzle</option>
+                <option value="MISSILE">Missile</option>
+                <option value="MERLIN">Merlin</option>
+                <option value="MAZE">Maze</option>
+                <option value="KALEID">Kaleid</option>
+                <option value="15PUZZLE">15 Puzzle</option>
+                <option value="BLINKY">Blinky</option>
+                <option value="BLITZ">Blitz</option>
+                <option value="BRIX">Brix</option>
+                <option value="CONNECT4">Connect 4</option>
+                <option value="UFO">UFO</option>
+                <option value="WIPEOFF">Wipe Off</option>
+                <option value="VERS">Vers</option>
+                <option value="VBRIX">VBrix</option>
+                <option value="TICTAC">Tic Tac Toe</option>
+                <option value="SYZYGY">Syzygy</option>
+                <option value="TANK">Tank</option>
+                <option value="test_opcode.ch8">Test Opcodes</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="canvasContainer">
+        <canvas id="canvas">Your browser doesn't support HTML5, no emulation for you...</canvas>
+    </div>
+
+    <p id="description">Please select a game for its description or upload your CHIP8 game.
+    <br />Check keyboard binds below</p>
+</body>
+</html>

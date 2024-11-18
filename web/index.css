@@ -1,0 +1,34 @@
+#fileContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+}
+
+#title {
+    text-align: center;
+}
+
+#description {
+    text-align: center;
+    font-size: larger;
+}
+
+ul {
+    list-style: none;
+}
+
+#canvas {
+    display: inline-block;
+    border: 5px aliceblue solid;
+    margin: 0 auto;
+}
+
+#canvasContainer {
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: gainsboro;
+}
