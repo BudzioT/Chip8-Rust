@@ -8,7 +8,7 @@
 <br />
 <div align="center">
     <a href="https://github.com/BudzioT/Chip8-Rust">
-        <img src="https://rustacean.net/assets/rustacean-orig-noshadow.png"  alt="Rust"/>
+        <img src="https://rustacean.net/assets/rustacean-orig-noshadow.png"  alt="Rust" width=200/>
     </a>
     <h3 align="center"> Chip 8 Rust Emulator </h3>
     <p align="center">
@@ -105,7 +105,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [stars-url]: https://github.com/BudzioT/Chip8-Rust/stargazers
 [license-shield]: https://img.shields.io/github/license/budziot/Chip8-Rust?style=for-the-badge
 [license-url]: https://github.com/BudzioT/Chip8-Rust/blob/master/LICENSE
-[product-screenshot]: https://cloud-j4wibbzz7-hack-club-bot.vercel.app/0image.png
+[product-screenshot]: https://cloud-l727k5kuf-hack-club-bot.vercel.app/0image.png
 [Rust]: https://img.shields.io/badge/Rust-%23000000.svg?e&logo=rust&logoColor=white
 [Rust-url]: https://www.rust-lang.org/
 [JS]: https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000
